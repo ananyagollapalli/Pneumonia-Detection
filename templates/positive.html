@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Pneumonia Detection Logo" id="logo">
+    </header>
+
+    <main>
+        <h2>Diagnosis: Pneumonia</h2>
+        <p>You have pneumonia. Please consult a doctor immediately.</p>
+        <section id="treatment">
+            <h3>Medications & Precautions:</h3>
+            <ul>
+                <li>Antibiotics: To treat bacterial pneumonia</li>
+                <li>Antiviral medications: For viral pneumonia</li>
+                <li>Antifungal medications: For fungal pneumonia</li>
+                <li>Rest and drink plenty of fluids</li>
+                <li>Avoid smoke and fumes</li>
+                <li>Get vaccinated</li>
+            </ul>
+            <p>Note: The above medications and precautions are generic recommendations. Always consult with a healthcare professional for a personalized treatment plan.</p>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body >
+    <header>
+        <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Pneumonia Detection Logo" id="logo">
+    </header>
+
+    <main>
+        <button id="addScanBtn" onclick="window.location.replace('http://127.0.0.1:5000/upload')">Add Your Scan</button>
+        <section id="aboutUs">
+            <h2>About Us</h2>
+            <p>We specialize in using advanced technology for the early detection of pneumonia. Our algorithms and expert team work together to ensure accurate results.</p>
+        </section>
+    </main>
+</body>
+</html>

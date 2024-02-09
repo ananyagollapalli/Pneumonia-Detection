@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Scan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Pneumonia Detection Logo" id="logo">
+    </header>
+
+    <main>
+        <h2>Upload Your Scan</h2>
+        <p>Please select the scan image:</p>
+<form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <div class="file-upload-wrapper">
+        <input type="file" name="scanImage" id="scanImage" accept=".jpg, .jpeg, .png" required onchange="previewImage(this)">
+        <label for="scanImage" class="file-upload-label">Choose File</label>
+        <div id="image-preview"></div>
+        <p id="file-error" style="color: red;"></p>
+    </div>
+    <input type="submit" value="Upload Scan" class="upload-btn">
+</form>
+    </main>
+    <script>
+        function previewImage(input) {
+            var preview = document.getElementById('image-preview');
+            preview.innerHTML = '';
+
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var image = document.createElement('img');
+                    image.src = e.target.result;
+                    preview.appendChild(image);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function validateForm() {
+            var fileInput = document.getElementsByName('file')[0];
+            var fileError = document.getElementById('file-error');
+
+            if (fileInput.files.length === 0) {
+                fileError.textContent = 'No file is chosen.';
+                return false;
+            }
+
+            fileError.textContent = '';
+            return true;
+        }
+    </script>
+</body>
+</html>
